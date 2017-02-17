@@ -23,4 +23,13 @@ app.get('/test', (req, res) => {
     res.send('Magnus is running');
 });
 
+let queue = [],
+	floors = 20,
+	atFloor = 0,
+	moving = false,
+
+app.get('/getqueue', (req, res) => {
+	res.json(queue);
+});
+
 app.listen(8081);
