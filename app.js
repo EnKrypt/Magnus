@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.use(express.static(path.join(application_root, "public")));
+app.use(express.static(__dirname + '/public'));
 app.use(function(req, res, next){
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Methods", "GET, POST");
@@ -19,6 +19,6 @@ app.use(function(req, res, next){
 
 app.get('/', function(req, res) {
     res.send('Magnus is running');
-})
+});
 
 app.listen(8081);
