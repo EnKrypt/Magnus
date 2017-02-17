@@ -1,23 +1,22 @@
 'use strict';
 
-var express = require('express'),
+let express = require('express'),
     bodyParser = require("body-parser");
 
-var app = express();
+let app = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(__dirname + '/public'));
-app.use(function(req, res, next){
+
+app.use((req, res, next) => {
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Methods", "GET, POST");
 	next();
 });
 
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
     res.send('Magnus is running');
 });
 
