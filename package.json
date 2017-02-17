@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/EnKrypt/Magnus/issues"
   },
-  "homepage": "https://github.com/EnKrypt/Magnus#readme"
+  "homepage": "https://github.com/EnKrypt/Magnus#readme",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1"
+  }
 }
