@@ -1,0 +1,19 @@
+{
+  "name": "magnus",
+  "version": "1.0.0",
+  "description": "Magnus is a system that allows elevators to make priority based decisions intelligently on the fly",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EnKrypt/Magnus.git"
+  },
+  "author": "EnKrypt",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/EnKrypt/Magnus/issues"
+  },
+  "homepage": "https://github.com/EnKrypt/Magnus#readme"
+}
