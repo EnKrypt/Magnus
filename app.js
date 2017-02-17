@@ -26,7 +26,7 @@ app.get('/test', (req, res) => {
 let queue = [],
 	floors = 20,
 	atFloor = 0,
-	moving = false,
+	moving = false;
 
 app.get('/getqueue', (req, res) => {
 	res.json(queue);
