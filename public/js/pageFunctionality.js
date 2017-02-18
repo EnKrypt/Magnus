@@ -1,11 +1,13 @@
 let queue = [];
 let prevfloor = 0;
 let atFloor;
+let waiting;
 
 function getQueue() {
     $.get('https://arvind.io:8085/getqueue', result => {
         queue = result.queue;
         atFloor = result.atFloor;
+        waiting = result.waiting;
         $('#queuecontents').html('');
 
         for (let key in queue) {
@@ -15,10 +17,7 @@ function getQueue() {
         $($('.queueitem')[0]).css('background-color', 'green');
         $($('.queueitem')[0]).css('color', 'white');
 
-        $($('#floor' + prevfloor).css('background-color', '#f5f5f5'));
-        $($('#floor' + prevfloor).css('color', 'black'));
-
-        if (atFloor == prevfloor) {
+        if (waiting) {
             $($('#floor' + atFloor).css('background-color', 'orange'));
         } else {
             $($('#floor' + atFloor).css('background-color', 'green'));
