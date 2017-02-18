@@ -11,6 +11,7 @@ function getQueue() {
             console.log(atFloor);
         }
         $($('.well')[0]).css('background-color', 'green');
+        $($('.well')[0]).css('color', 'white');
     });
 }
 
