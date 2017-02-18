@@ -22,7 +22,10 @@ let queue = [],
 let pi= "";
 
 let events = require('./lib/events');
-require('./lib/scheduler')(start, queue, atFloor, moving, waiting, transit);
+
+setInterval(() => {
+	require('./lib/scheduler')(start, queue, atFloor, moving, waiting, transit);
+}, 1000);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
