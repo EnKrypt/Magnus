@@ -7,7 +7,7 @@ function getQueue() {
         $('#queuecontents').html('');
 
         for (let key in queue) {
-            $('#queuecontents').append('<div class="well"> Id: ' + queue[key].beaconid + ' From: ' + queue[key].from + ' To: ' + queue[key].to + ' Priority: ' + queue[key].priority + '</div>');
+            $('#queuecontents').append('<div class="well">Id: ' + queue[key].beaconid + '<br><br>From: ' + queue[key].from + '<br><br>To: ' + queue[key].to + '<br><br>Priority: ' + queue[key].priority + '</div>');
             console.log(atFloor);
         }
     });
