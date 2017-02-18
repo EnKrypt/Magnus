@@ -7,7 +7,9 @@ const app = express();
 
 let queue = [],
 	floors = 20,
-	atFloor = 0,
+	atFloor = {
+		value: 0
+	},
 	moving = {
         value: false
     },
@@ -24,7 +26,7 @@ let pi= "";
 let events = require('./lib/events');
 
 setInterval(() => {
-	console.log(queue, atFloor);
+	console.log(queue, atFloor.value);
 	require('./lib/scheduler')(start, queue, atFloor, moving, waiting, transit);
 }, 1000);
 
