@@ -38,4 +38,18 @@ app.get('/getqueue', (req, res) => {
 	res.json(queue);
 });
 
+
+
+
+
+let pi = "";
+
+app.post('/pi', (req, res) => {
+	pi = req.body;
+});
+
+app.get('/pi', (req, res) => {
+	res.send(pi);
+});
+
 app.listen(8081);
