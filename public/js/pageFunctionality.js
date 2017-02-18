@@ -4,8 +4,12 @@ function getQueue() {
     $.get('https://arvind.io:8085/getqueue', result => {
         queue = result.queue;
         atFloor = result.atFloor;
-        $('#queuecontents').html(JSON.stringify(queue));
-        console.log(atFloor);
+        $('#queuecontents').html('');
+
+        for (let key in queue) {
+            $('#queuecontents').append('<div class="well"> Id: ' + queue[key].beaconid + ' From: ' + queue[key].from + ' To: ' + queue[key].to + ' Priority: ' + queue[key].priority + '</div>');
+            console.log(atFloor);
+        }
     });
 }
 
