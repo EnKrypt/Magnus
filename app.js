@@ -29,14 +29,14 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.get('/test', require('./lib/controllers')(events, pi).test);
+app.get('/test', require('./lib/controllers')(events, queue, pi).test);
 
-app.get('/getevents', require('./lib/controllers')(events, pi).getevents);
+app.get('/getevents', require('./lib/controllers')(events, queue, pi).getevents);
 
-app.get('/getqueue', require('./lib/controllers')(events, pi).getqueue);
+app.get('/getqueue', require('./lib/controllers')(events, queue, pi).getqueue);
 
-app.post('/pi', require('./lib/controllers')(events, pi).postpi);
+app.post('/pi', require('./lib/controllers')(events, queue, pi).postpi);
 
-app.get('/pi', require('./lib/controllers')(events, pi).getpi);
+app.get('/pi', require('./lib/controllers')(events, queue, pi).getpi);
 
 app.listen(8081);
