@@ -44,18 +44,18 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.get('/test', require('./lib/controllers')(events, queue, moving, atFloor, pi).test);
+app.get('/test', require('./lib/controllers')(events, queue, moving, waiting, atFloor, pi).test);
 
-app.get('/getevents', require('./lib/controllers')(events, queue, moving, atFloor, pi).getevents);
+app.get('/getevents', require('./lib/controllers')(events, queue, moving, waiting, atFloor, pi).getevents);
 
-app.get('/getqueue', require('./lib/controllers')(events, queue, moving, atFloor, pi).getqueue);
+app.get('/getqueue', require('./lib/controllers')(events, queue, moving, waiting, atFloor, pi).getqueue);
 
-app.post('/emergency', require('./lib/controllers')(events, queue, moving, atFloor, pi).emergency);
+app.post('/emergency', require('./lib/controllers')(events, queue, moving, waiting, atFloor, pi).emergency);
 
-app.post('/approaching', require('./lib/controllers')(events, queue, moving, atFloor, pi).approaching);
+app.post('/approaching', require('./lib/controllers')(events, queue, moving, waiting, atFloor, pi).approaching);
 
-app.post('/pi', require('./lib/controllers')(events, queue, moving, atFloor, pi).postpi);
+app.post('/pi', require('./lib/controllers')(events, queue, moving, waiting, atFloor, pi).postpi);
 
-app.get('/pi', require('./lib/controllers')(events, queue, moving, atFloor, pi).getpi);
+app.get('/pi', require('./lib/controllers')(events, queue, moving, waiting, atFloor, pi).getpi);
 
 app.listen(8081);
