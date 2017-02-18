@@ -17,8 +17,13 @@ function getQueue() {
 
         $($('#floor' + prevfloor).css('background-color', '#f5f5f5'));
         $($('#floor' + prevfloor).css('color', 'black'));
-        $($('#floor' + atFloor).css('background-color', 'green'));
-        $($('#floor' + atFloor).css('color', 'white'));
+
+        if (atFloor == prevfloor) {
+            $($('#floor' + atFloor).css('background-color', 'orange'));
+        } else {
+            $($('#floor' + atFloor).css('background-color', 'green'));
+            $($('#floor' + atFloor).css('color', 'white'));
+        }
         prevfloor = atFloor;
     });
 }
