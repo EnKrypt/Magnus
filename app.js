@@ -3,6 +3,8 @@
 const express = require('express'),
 	  bodyParser = require("body-parser");
 
+const schedule = require('./lib/schedule');
+
 const app = express();
 
 app.use(bodyParser.json());
