@@ -8,11 +8,21 @@ const app = express();
 let queue = [],
 	floors = 20,
 	atFloor = 0,
-	moving = false;
+	moving = {
+        value: false
+    },
+    waiting = {
+        value: false
+    },
+    transit = {
+        value: false
+    },
+	start = Math.floor(Date.now() / 1000);
 
 let pi= "";
 
 let events = require('./lib/events');
+require('./lib/scheduler')(start, queue, atFloor, moving, waiting, transit);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,18 +38,18 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.get('/test', require('./lib/controllers')(events, queue, pi).test);
+app.get('/test', require('./lib/controllers')(events, queue, moving, atFloor, pi).test);
 
-app.get('/getevents', require('./lib/controllers')(events, queue, pi).getevents);
+app.get('/getevents', require('./lib/controllers')(events, queue, moving, atFloor, pi).getevents);
 
-app.get('/getqueue', require('./lib/controllers')(events, queue, pi).getqueue);
+app.get('/getqueue', require('./lib/controllers')(events, queue, moving, atFloor, pi).getqueue);
 
-app.post('/emergency', require('./lib/controllers')(events, queue, pi).emergency);
+app.post('/emergency', require('./lib/controllers')(events, queue, moving, atFloor, pi).emergency);
 
-app.post('/approaching', require('./lib/controllers')(events, queue, pi).approaching);
+app.post('/approaching', require('./lib/controllers')(events, queue, moving, atFloor, pi).approaching);
 
-app.post('/pi', require('./lib/controllers')(events, queue, pi).postpi);
+app.post('/pi', require('./lib/controllers')(events, queue, moving, atFloor, pi).postpi);
 
-app.get('/pi', require('./lib/controllers')(events, queue, pi).getpi);
+app.get('/pi', require('./lib/controllers')(events, queue, moving, atFloor, pi).getpi);
 
 app.listen(8081);
