@@ -32,7 +32,7 @@ function getQueue() {
 }
 
 function getGraph() {
-    $.get('https://arvind.io:8085/getevents', result => {
+    $.get('https://arvind.io:8085/getevents', events => {
         var seconds = [];
         var floor = 0;
         for (var key in events) {
