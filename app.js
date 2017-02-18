@@ -3,7 +3,7 @@
 const express = require('express'),
 	  bodyParser = require("body-parser");
 
-const schedule = require('./lib/schedule');
+const events = require('./lib/events');
 
 const app = express();
 
@@ -30,8 +30,8 @@ let queue = [],
 	atFloor = 0,
 	moving = false;
 
-app.get('/getschedule', (req, res) => {
-	res.json(schedule);
+app.get('/getevents', (req, res) => {
+	res.json(events);
 });
 
 app.get('/getqueue', (req, res) => {
