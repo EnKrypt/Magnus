@@ -14,7 +14,7 @@ let pi= ""
 
 let scheduler = require('./lib/scheduler'),
 	events = require('./lib/events');
-let controllers = require('./lib/controllers')(events);
+let controllers = require('./lib/controllers')(events, pi);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
