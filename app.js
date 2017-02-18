@@ -3,9 +3,18 @@
 const express = require('express'),
 	  bodyParser = require("body-parser");
 
-const events = require('./lib/events');
-
 const app = express();
+
+let queue = [],
+	floors = 20,
+	atFloor = 0,
+	moving = false;
+
+let pi= ""
+
+let scheduler = require('./lib/scheduler'),
+	events = require('./lib/events');
+let controllers = require('./lib/controllers')(events);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,35 +30,14 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.get('/test', (req, res) => {
-    res.send('Magnus is running');
-});
+app.get('/test', controllers.test);
 
-let queue = [],
-	floors = 20,
-	atFloor = 0,
-	moving = false;
+app.get('/getevents', controllers.getevents);
 
-app.get('/getevents', (req, res) => {
-	res.json(events);
-});
+app.get('/getqueue', controllers.getqueue);
 
-app.get('/getqueue', (req, res) => {
-	res.json(queue);
-});
+app.post('/pi', controllers.postpi);
 
-
-
-
-
-let pi = "";
-
-app.post('/pi', (req, res) => {
-	pi = req.body;
-});
-
-app.get('/pi', (req, res) => {
-	res.send(pi);
-});
+app.get('/pi', controllers.getpi);
 
 app.listen(8081);
