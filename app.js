@@ -10,7 +10,7 @@ let queue = [],
 	atFloor = 0,
 	moving = false;
 
-let pi= ""
+let pi= "";
 
 let events = require('./lib/events');
 
