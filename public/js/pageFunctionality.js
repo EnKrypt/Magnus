@@ -22,11 +22,10 @@ function getQueue() {
         } else {
             $($('#floor' + atFloor).css('background-color', 'green'));
             $($('#floor' + atFloor).css('color', 'white'));
-
-            if (prevfloor != atFloor) {
-                $($('#floor' + prevfloor).css('background-color', '#f5f5f5'));
-                $($('#floor' + prevfloor).css('color', 'black'));
-            }
+        }
+        if (prevfloor != atFloor) {
+            $($('#floor' + prevfloor).css('background-color', '#f5f5f5'));
+            $($('#floor' + prevfloor).css('color', 'black'));
         }
         prevfloor = atFloor;
     });
