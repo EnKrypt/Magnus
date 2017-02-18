@@ -10,8 +10,10 @@ function getQueue() {
             $('#queuecontents').append('<div class="well queueitem"><h4>Priority: ' + queue[key].priority + '</h4><strong>ID</strong>: ' + queue[key].beaconid + '<br><strong>From</strong>: ' + queue[key].from + ' <strong>To</strong>: ' + queue[key].to + '</div>');
             console.log(atFloor);
         }
-        $($('.well')[0]).css('background-color', 'green');
-        $($('.well')[0]).css('color', 'white');
+        $($('.queueitem')[0]).css('background-color', 'green');
+        $($('.queueitem')[0]).css('color', 'white');
+        $($('#floor' + atFloor).css('background-color', 'green'));
+        $($('#floor' + atFloor).css('color', 'white'));
     });
 }
 
