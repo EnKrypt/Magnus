@@ -19,6 +19,9 @@ let queue = [],
     transit = {
         value: false
     },
+	countdown = {
+		value: 3
+	},
 	start = Math.floor(Date.now() / 1000);
 
 let pi= "";
@@ -27,7 +30,7 @@ let events = require('./lib/events');
 
 setInterval(() => {
 	console.log(queue, atFloor.value);
-	require('./lib/scheduler')(start, queue, atFloor, moving, waiting, transit);
+	require('./lib/scheduler')(start, queue, atFloor, moving, waiting, transit, countdown);
 }, 1000);
 
 app.use(bodyParser.json());
