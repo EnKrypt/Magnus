@@ -12,8 +12,7 @@ let queue = [],
 
 let pi= ""
 
-let scheduler = require('./lib/scheduler'),
-	events = require('./lib/events');
+let events = require('./lib/events');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -34,6 +33,10 @@ app.get('/test', require('./lib/controllers')(events, queue, pi).test);
 app.get('/getevents', require('./lib/controllers')(events, queue, pi).getevents);
 
 app.get('/getqueue', require('./lib/controllers')(events, queue, pi).getqueue);
+
+app.post('/emergency', require('./lib/controllers')(events, queue, pi).emergency);
+
+app.post('/approaching', require('./lib/controllers')(events, queue, pi).approaching);
 
 app.post('/pi', require('./lib/controllers')(events, queue, pi).postpi);
 
