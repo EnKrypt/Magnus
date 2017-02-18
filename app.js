@@ -57,6 +57,8 @@ app.post('/emergency', require('./lib/controllers')(events, queue, moving, waiti
 
 app.post('/approaching', require('./lib/controllers')(events, queue, moving, waiting, atFloor, pi).approaching);
 
+app.get('/testqueue', require('./lib/controllers')(events, queue, moving, waiting, atFloor, pi).testqueue);
+
 app.post('/pi', require('./lib/controllers')(events, queue, moving, waiting, atFloor, pi).postpi);
 
 app.get('/pi', require('./lib/controllers')(events, queue, moving, waiting, atFloor, pi).getpi);
