@@ -30,6 +30,10 @@ let queue = [],
 	atFloor = 0,
 	moving = false;
 
+app.get('/getschedule', (req, res) => {
+	res.json(schedule);
+});
+
 app.get('/getqueue', (req, res) => {
 	res.json(queue);
 });
