@@ -36,8 +36,8 @@ function getGraph() {
         var seconds = [];
         var floor = 0;
         for (var key in events) {
-            seconds.push(Math.abs(events.from - floor) + 3 + Math.abs(events.to = events.from));
-            floor = events.to;
+            seconds.push(Math.abs(events[key].from - floor) + 3 + Math.abs(events[key].to = events[key].from));
+            floor = events[key].to;
         }
         console.log(seconds);
 
@@ -47,8 +47,8 @@ function getGraph() {
             return b.priority - a.priority;
         });
         for (var key in events) {
-            seconds.push(Math.abs(events.from - floor) + 3 + Math.abs(events.to = events.from));
-            floor = events.to;
+            seconds.push(Math.abs(events[key].from - floor) + 3 + Math.abs(events[key].to = events[key].from));
+            floor = events[key].to;
         }
         console.log(seconds);
     });
