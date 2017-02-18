@@ -24,6 +24,7 @@ let pi= "";
 let events = require('./lib/events');
 
 setInterval(() => {
+	console.log(queue, atFloor);
 	require('./lib/scheduler')(start, queue, atFloor, moving, waiting, transit);
 }, 1000);
 
