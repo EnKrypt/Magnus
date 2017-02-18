@@ -1,5 +1,7 @@
 # Magnus
 
+## Fucking Done Lul 🌈
+
 Magnus is a system that allows elevators to make priority based decisions intelligently on the fly.
 
 A non-trivial number of deaths inside hospitals occur while the patient is waiting or being moved. Magnus lets patients and staff get from one floor to another within a hospital in as little time as possible.
