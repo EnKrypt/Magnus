@@ -33,24 +33,26 @@ function getQueue() {
 
 function getGraph() {
     $.get('https://arvind.io:8085/getevents', events => {
-        var seconds = [];
         var floor = 0;
         for (var key in events) {
-            seconds.push(Math.abs(events[key].from - floor) + 3 + Math.abs(events[key].to = events[key].from));
+            events[key].oseconds = Math.abs(events[key].from - floor) + 3 + Math.abs(events[key].to = events[key].from);
             floor = events[key].to;
         }
-        console.log(seconds);
 
-        seconds = [];
         floor = 0;
         events = events.sort(function (a, b) {
             return b.priority - a.priority;
         });
         for (var key in events) {
-            seconds.push(Math.abs(events[key].from - floor) + 3 + Math.abs(events[key].to = events[key].from));
+            events[key].pseconds = Math.abs(events[key].from - floor) + 3 + Math.abs(events[key].to = events[key].from);
             floor = events[key].to;
         }
-        console.log(seconds);
+        console.log(events.map(function(obj) {
+            return obj.oseconds;
+        }));
+        console.log(events.map(function(obj) {
+            return obj.pseconds;
+        }));
     });
 }
 
