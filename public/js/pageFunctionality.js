@@ -2,6 +2,8 @@ let queue = [];
 let prevfloor = 0;
 let atFloor;
 let waiting;
+let traditionalData;
+let optimizedData;
 
 function getQueue() {
     $.get('https://arvind.io:8085/getqueue', result => {
@@ -47,15 +49,34 @@ function getGraph() {
             events[key].pseconds = Math.round((Math.abs(events[key].from - floor) + 6 + Math.abs(events[key].to - events[key].from)) / (Math.abs(events[key].from - events[key].to)) * 10) / 10;
             floor = events[key].to;
         }
-        console.log(events.map(function(obj) {
+
+        traditionalData = events.map(function(obj) {
             return obj.oseconds;
-        }));
-        console.log(events.map(function(obj) {
+        });
+
+        optimizedData = events.map(function(obj) {
             return obj.pseconds;
-        }));
+        });
+
+        console.log(traditionalData);
+        console.log(optimizedData);
+
+        let tchart = $("#traditionalChart");
+        let ochart = $("#optimizedChart");
+
+        let chartt = new Chart(tchart, {
+            type: 'bar',
+            data: traditionalData
+        });
+
+        let charto = new Chart(ochart, {
+            type: 'bar',
+            data: optimizedData
+        });
     });
 }
 
 $(() => {
     setInterval(getQueue, 200);
+    getGraph();
 });
