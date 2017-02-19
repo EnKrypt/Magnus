@@ -53,7 +53,7 @@ app.get('/getevents', require('./lib/controllers')(events, queue, moving, waitin
 
 app.get('/getqueue', require('./lib/controllers')(events, queue, moving, waiting, atFloor, pi).getqueue);
 
-app.post('/emergency', require('./lib/controllers')(events, queue, moving, waiting, atFloor, pi).emergency);
+app.post('/newschedule', require('./lib/controllers')(events, queue, moving, waiting, atFloor, pi).newschedule);
 
 app.post('/approaching', require('./lib/controllers')(events, queue, moving, waiting, atFloor, pi).approaching);
 

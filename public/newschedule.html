@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Emergency Form</title>
+    <title>Schedule a new event</title>
 </head>
 <body>
     <div class="container">
-        <form action="/emergency" method="POST">
+        <form action="/newschedule" method="POST">
             <input name="beaconid" placeholder="beaconid">
+            <input type="number" name="priority" placeholder="priority">
             <input type="number" name="from" placeholder="from">
             <input type="number" name="to" placeholder="to">
             <button type="submit">Submit</button>
