@@ -134,7 +134,13 @@ function getGraph() {
                             min: 0,
                             max: 5
                         }
-                    }]
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: "Priority"
+                        }
+                    }],
                 },
                 legend: {
                     display: false
@@ -157,7 +163,13 @@ function getGraph() {
                             min: 0,
                             max: 5
                         }
-                    }]
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: "Priority"
+                        }
+                    }],
                 },
                 legend: {
                     display: false
