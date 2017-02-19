@@ -8,7 +8,7 @@ const app = express();
 let queue = [],
 	floors = 20,
 	atFloor = {
-		value: 1
+		value: 0
 	},
 	moving = {
         value: false
