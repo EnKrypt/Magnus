@@ -125,12 +125,19 @@ function getGraph() {
             options: {
                 scales: {
                     yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: "Seconds (Normalized)"
+                        },
                         display: true,
                         ticks: {
                             min: 0,
                             max: 5
                         }
                     }]
+                },
+                legend: {
+                    display: false
                 }
             }
         });
@@ -141,12 +148,19 @@ function getGraph() {
             options: {
                 scales: {
                     yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: "Seconds (Normalized)"
+                        },
                         display: true,
                         ticks: {
                             min: 0,
                             max: 5
                         }
                     }]
+                },
+                legend: {
+                    display: false
                 }
             }
         });
