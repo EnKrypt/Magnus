@@ -36,7 +36,7 @@ function getGraph() {
         var floor = 0;
         for (var key in events) {
             console.log(Math.abs(events[key].from - floor) + 6 + Math.abs(events[key].to = events[key].from));
-            console.log(Math.abs(events[key].from - events[key].to));
+            console.log(events[key].from, events[key].to);
             events[key].oseconds = (Math.abs(events[key].from - floor) + 6 + Math.abs(events[key].to = events[key].from)) / (Math.abs(events[key].from - events[key].to));
             floor = events[key].to;
         }
@@ -47,7 +47,7 @@ function getGraph() {
         });
         for (var key in events) {
             console.log(Math.abs(events[key].from - floor) + 6 + Math.abs(events[key].to = events[key].from));
-            console.log(Math.abs(events[key].from - events[key].to));
+            console.log(events[key].from, events[key].to);
             events[key].pseconds = (Math.abs(events[key].from - floor) + 6 + Math.abs(events[key].to = events[key].from)) / (Math.abs(events[key].from - events[key].to));
             floor = events[key].to;
         }
