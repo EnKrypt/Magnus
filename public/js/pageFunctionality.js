@@ -35,7 +35,7 @@ function getGraph() {
     $.get('https://arvind.io:8085/getevents', events => {
         var floor = 0;
         for (var key in events) {
-            events[key].oseconds = (Math.abs(events[key].from - floor) + 6 + Math.abs(events[key].to - events[key].from)) / (Math.abs(events[key].from - events[key].to));
+            events[key].oseconds = Math.round((Math.abs(events[key].from - floor) + 6 + Math.abs(events[key].to - events[key].from)) / (Math.abs(events[key].from - events[key].to)) * 10) / 10;
             floor = events[key].to;
         }
 
@@ -44,7 +44,7 @@ function getGraph() {
             return b.priority - a.priority;
         });
         for (var key in events) {
-            events[key].pseconds = (Math.abs(events[key].from - floor) + 6 + Math.abs(events[key].to - events[key].from)) / (Math.abs(events[key].from - events[key].to));
+            events[key].pseconds = Math.round((Math.abs(events[key].from - floor) + 6 + Math.abs(events[key].to - events[key].from)) / (Math.abs(events[key].from - events[key].to)) * 10) / 10;
             floor = events[key].to;
         }
         console.log(events.map(function(obj) {
